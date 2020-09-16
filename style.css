@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&display=swap');
+
+/*
+Reset stuff
+*/
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+	font-family: inherit;
+	font-size: inherit;
+}
+
+html {
+	font-family: 'Anonymous Pro', monospace;
+	font-size: 62.5%;
+}
+
+body {
+	box-sizing: border-box;
+	background: hsl(162 90% 95% / 1);
+	color: hsl(40 95% 30% / 1);
+}
+
+/*
+Clearfix
+*/
+.clearfix::after {
+	content:'';
+	display: table;
+	clear: both;
+}
+
+/* main */
+
+.main {
+	margin: 0 auto;
+	width: 60rem;
+	padding: 2rem;
+	font-size: 2rem;
+}
+
+.container {
+	border: 3px solid hsl(40 68% 88% / 1);
+	padding: 1rem;
+	border-radius: 2rem;
+	margin: 1rem 0;
+	background: hsl(398 50% 94% / 1);
+	box-shadow: 0px 1px 3px rgba(0,0,0,.5);
+}
+
+.container__button {
+	padding: .5rem 1rem;
+	margin: 1rem 1rem 1rem 0;
+	border: none;
+	border-radius: 5px;
+	min-width: 10rem;
+	background: hsl(40 30% 90% / 1);
+	color: hsl(40 95% 30% / 1);
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+.container__button:hover {
+	
+	background: hsl(40 30% 88% / 1);
+}
+
+/* adder */
+
+.adder-wrapper {
+	margin: 1rem 0;
+}
+
+.adder__textfield {
+	padding: .5rem 1rem;
+	border: none;
+	border-radius: 5px;
+	display: block;
+	width: 100%;
+}
+
+
+/* timer */
+
+.timer__name {
+    font-size: 3rem;
+    font-weight: 600;
+	padding: 0 1rem;
+	margin: 0 0 1rem;
+}
+
+
+
+.timer__display {
+	background: hsl(40deg 67% 88%);
+	color: hsl(40 95% 30% / 1);
+	padding: 1rem;
+	font-size: 4rem;
+	text-align: right;
+	text-shadow: 2px 2px rgba(0,0,0,.1);
+	border-radius: 10px;
+	box-shadow: inset 0px 1px 5px rgba(0,0,0,.5);
+	margin: 1rem 0 0;
+}
+
+
