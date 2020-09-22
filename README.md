@@ -6,8 +6,9 @@ A tool for tracking how long multiple simultaneous things take.
 
 ### current goals
 * [ ] global buttons
-	* [ ] playPause all
+	* [x] playPause all
 	* [ ] remove all
+* [ ] fix bug where "play all" resets counters
 * [ ] fix usability problems with adder text field 
 	* [ ] pressing enter should add timer
 	* [ ] add placeholder text or a label
