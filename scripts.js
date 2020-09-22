@@ -1,3 +1,8 @@
+var 
+startingElements = {},
+timerArray = []
+;
+
 ready(initializePage);
 
 function ready(fn) {
@@ -9,18 +14,66 @@ function ready(fn) {
 }
 
 function initializePage(){
-	var 
-		startingElements = {
-			adderWrapper: document.querySelectorAll('.adder-wrapper')[0],
-			timerWrapper: document.querySelectorAll('.timer-wrapper')[0]
-		}
-	;
+
+	startingElements.globalActionsWrapper = document.querySelectorAll('.global-actions-wrapper')[0];
+	startingElements.adderWrapper = document.querySelectorAll('.adder-wrapper')[0];
+	startingElements.timerWrapper = document.querySelectorAll('.timer-wrapper')[0];
+
+	// create the global actions block
+	var globalActionsBlock = globalActionsClass();
+	globalActionsBlock.updateDOM(startingElements.globalActionsWrapper);
+
 	// create the adder
-	var addBlock = adderClass(startingElements);
+	var addBlock = adderClass();
 	addBlock.updateDOM(startingElements.adderWrapper);
 }
 
-function adderClass(startingElements){
+function globalActionsClass(){
+	var
+		globalActionsContainer,
+		pauseAll = function(e){
+			// loop through all the timers
+			for(let i in timerArray){
+				// call the pause method
+				timerArray[i].pauseCounter();
+			}
+		},
+		playAll = function(e){
+			// loop through all the timers
+			for(let i in timerArray){
+				// call the play method
+				timerArray[i].startCounter();
+			}
+		},
+		newObj = {
+			'updateDOM': function(target){
+				// Global Actions container
+				globalActionsContainer = document.createElement("div");
+				globalActionsContainer.classList.add("global-actions", "container");
+
+				// pause button
+				pauseAllButton = document.createElement("button");
+				pauseAllButton.classList.add("container__button");
+				pauseAllButton.innerText = "Pause All";
+				pauseAllButton.addEventListener("click", pauseAll);			
+				globalActionsContainer.appendChild(pauseAllButton);
+
+				// play button
+				playAllButton = document.createElement("button");
+				playAllButton.classList.add("container__button");
+				playAllButton.innerText = "Play All";
+				playAllButton.addEventListener("click", playAll);			
+				globalActionsContainer.appendChild(playAllButton);				
+
+				// print to DOM
+				target.appendChild(globalActionsContainer);
+			}
+		}
+	;	
+	return newObj;	
+}
+
+function adderClass(){
 	var
 		adderContainer,
 		timerAddButton,
@@ -29,6 +82,7 @@ function adderClass(startingElements){
 		createNewTimer = function(e){
 			thisTimer = timerClass();
 			thisTimer.createTimer(startingElements.timerWrapper, timerNameField.value);
+			timerArray.push(thisTimer);
 			timerNameField.value = "";
 		},
 		createNewTimerAndStart = function(e){
@@ -83,13 +137,23 @@ function timerClass() {
 		removeTimer = function(){
 			// remove and delete timer
 			timerContainer.remove();
+			// remove it from the array
+			for (let i in timerArray){
+				if(timerArray[i] === newObj){
+					timerArray.splice(i,1);
+				}
+			}
+			console.log(timerArray);
 		},
-		toggleStartPauseLabel = function(){
-			startPauseButton.innerText = counter.getRunning() ? "pause" : "start";
+		toggleStartPause = function(){
+			if(counter.getRunning() === true){
+				newObj.pauseCounter();
+			} else {
+				newObj.startCounter();
+			}			
 		},
 		newObj = {
 			createTimer: function(target, name){
-
 
 				// timer container
 				timerContainer = document.createElement("div");
@@ -129,8 +193,7 @@ function timerClass() {
 				// counter
 				counter = counterClass(displayDiv);
 				counter.reset();
-				startPauseButton.addEventListener("click", counter.startStop);
-				startPauseButton.addEventListener("click", toggleStartPauseLabel);
+				startPauseButton.addEventListener("click", toggleStartPause);
 				resetButton.addEventListener("click", counter.reset);
 
 				// print to DOM
@@ -139,8 +202,14 @@ function timerClass() {
 			},
 			startCounter: function(e){
 				if(counter){
-					counter.startStop(e);
-					toggleStartPauseLabel();
+					startPauseButton.innerText = "pause";
+					counter.start();
+				}
+			},
+			pauseCounter: function(e){
+				if(counter){
+					startPauseButton.innerText = "start";
+					counter.stop();
 				}
 			}
 		}
@@ -188,16 +257,16 @@ function counterClass(timerDisplayDiv) {
 			cumulativeDate = new Date(0);
 		},
 		newObj = {
-			'startStop': function (event) {				
-				running = !running;				
-				if (running) {
-					beginNewInterval();
-					incrementCounter();
-				} else {
-					updateCumulative();
-					beginNewInterval();
-					printTotal();
-				}
+			'start': function (event) {				
+				running = true;	
+				beginNewInterval();
+				incrementCounter();
+			},
+			'stop': function (event) {				
+				running = false;
+				updateCumulative();
+				beginNewInterval();
+				printTotal();
 			},
 			'reset': function(){
 				beginNewInterval();
