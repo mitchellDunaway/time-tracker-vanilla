@@ -100,6 +100,13 @@ function adderClass(){
 				timerNameField.type = "textfield";
 				timerNameField.name = "adder__textfield";
 				timerNameField.classList.add("adder__textfield");
+				timerNameField.placeholder = "Timer Name";
+				timerNameField.addEventListener("keydown", e => {
+					if(e.code === "Enter"){
+						createNewTimerAndStart();
+					}
+				});
+
 				adderContainer.appendChild(timerNameField);
 
 				// add button
@@ -202,14 +209,18 @@ function timerClass() {
 			},
 			startCounter: function(e){
 				if(counter){
-					startPauseButton.innerText = "pause";
-					counter.start();
+					if(counter.getRunning() === false){
+						startPauseButton.innerText = "pause";
+						counter.start();
+					}
 				}
 			},
 			pauseCounter: function(e){
 				if(counter){
-					startPauseButton.innerText = "start";
-					counter.stop();
+					if(counter.getRunning() === true){
+						startPauseButton.innerText = "start";
+						counter.stop();
+					}
 				}
 			}
 		}

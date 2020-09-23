@@ -6,12 +6,14 @@ A tool for tracking how long multiple simultaneous things take.
 
 ### current goals
 * [ ] global buttons
-	* [x] playPause all
+	* [x] play all
+	* [x] pause all
+	* [ ] reset
 	* [ ] remove all
-* [ ] fix bug where "play all" resets counters
-* [ ] fix usability problems with adder text field 
-	* [ ] pressing enter should add timer
-	* [ ] add placeholder text or a label
+* [x] fix bug where "play all" resets counters if they are already playing
+* [x] fix usability problems with adder text field 
+	* [x] pressing enter should add timer
+	* [x] add placeholder text or a label
 * [ ] allow editing of counters: adjust time with arrows
 * [ ] timers should animate disappearance when removed
 * [ ] playing timers should be very easy to differentiate from paused timers

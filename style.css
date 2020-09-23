@@ -64,6 +64,10 @@ Clearfix
 	cursor: pointer;
 }
 
+.container__button:focus {
+	outline: none;
+}
+
 .container__button:hover {
 	
 	background: hsl(40 30% 88% / 1);
@@ -81,6 +85,10 @@ Clearfix
 	border-radius: 5px;
 	display: block;
 	width: 100%;
+}
+
+.adder__textfield::placeholder {
+	color: #CCC;
 }
 
 
