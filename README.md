@@ -5,18 +5,18 @@ A tool for tracking how long multiple simultaneous things take.
 ## TODO list
 
 ### current goals
-* [ ] global buttons
+* [x] global buttons
 	* [x] play all
 	* [x] pause all
-	* [ ] reset
-	* [ ] remove all
+	* [x] reset
+	* [x] remove all
 * [x] fix bug where "play all" resets counters if they are already playing
 * [x] fix usability problems with adder text field 
 	* [x] pressing enter should add timer
 	* [x] add placeholder text or a label
+* [ ] playing timers should be very easy to differentiate from paused timers
 * [ ] allow editing of counters: adjust time with arrows
 * [ ] timers should animate disappearance when removed
-* [ ] playing timers should be very easy to differentiate from paused timers
 * [ ] allow one timer to be put in document title
 * [ ] use flex-box to lay out the timers
 * [ ] make it responsive!
