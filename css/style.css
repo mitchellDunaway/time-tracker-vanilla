@@ -50,6 +50,11 @@ Clearfix
 	margin: 1rem 0;
 	background: hsl(398 50% 94% / 1);
 	box-shadow: 0px 1px 3px rgba(0,0,0,.5);
+	position: relative;
+}
+
+.container.playing {
+	border: 3px solid hsl(220 68% 80% / 1);
 }
 
 .container__button {
@@ -91,7 +96,6 @@ Clearfix
 	color: #CCC;
 }
 
-
 /* timer */
 
 .timer__name {
@@ -101,8 +105,6 @@ Clearfix
 	margin: 0 0 1rem;
 }
 
-
-
 .timer__display {
 	background: hsl(40deg 67% 88%);
 	color: hsl(40 95% 30% / 1);
@@ -111,8 +113,20 @@ Clearfix
 	text-align: right;
 	text-shadow: 2px 2px rgba(0,0,0,.1);
 	border-radius: 10px;
-	box-shadow: inset 0px 1px 5px rgba(0,0,0,.5);
+	box-shadow: inset 2px 2px 2px rgba(0,0,0,.1);
 	margin: 1rem 0 0;
+}
+
+.timer__icon {
+	position: absolute;
+	left: 2rem;
+	bottom: 2rem;
+	font-size: 4rem;
+	color: hsl(40 40% 70% / 1);
+}
+
+.playing .timer__icon {
+	color: hsl(220 68% 80% / 1);
 }
 
 

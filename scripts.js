@@ -26,6 +26,7 @@ function initializePage(){
 	// create the adder
 	var addBlock = adderClass();
 	addBlock.updateDOM(startingElements.adderWrapper);
+
 }
 
 function globalActionsClass(){
@@ -45,6 +46,18 @@ function globalActionsClass(){
 				timerArray[i].startCounter();
 			}
 		},
+		resetAll = function(e){
+			// loop through all the timers
+			for(let i in timerArray){
+				// call the reset method
+				timerArray[i].resetCounter();
+			}
+		},
+		removeAll = function(e){
+			timerArray = [];
+			// I'd prefer not to use innerHTML in general, but I can't think of a better way to do this
+			startingElements.timerWrapper.innerHTML = "";
+		},
 		newObj = {
 			'updateDOM': function(target){
 				// Global Actions container
@@ -63,7 +76,21 @@ function globalActionsClass(){
 				playAllButton.classList.add("container__button");
 				playAllButton.innerText = "Play All";
 				playAllButton.addEventListener("click", playAll);			
-				globalActionsContainer.appendChild(playAllButton);				
+				globalActionsContainer.appendChild(playAllButton);
+				
+				// reset button
+				resetAllButton = document.createElement("button");
+				resetAllButton.classList.add("container__button");
+				resetAllButton.innerText = "Reset All";
+				resetAllButton.addEventListener("click", resetAll);			
+				globalActionsContainer.appendChild(resetAllButton);
+				
+				// remove button
+				removeAllButton = document.createElement("button");
+				removeAllButton.classList.add("container__button");
+				removeAllButton.innerText = "Remove All";
+				removeAllButton.addEventListener("click", removeAll);			
+				globalActionsContainer.appendChild(removeAllButton);		
 
 				// print to DOM
 				target.appendChild(globalActionsContainer);
@@ -141,6 +168,7 @@ function timerClass() {
 		displayDiv,
 		counter,
 		nameTitle,
+		statusIcon,
 		removeTimer = function(){
 			// remove and delete timer
 			timerContainer.remove();
@@ -150,7 +178,6 @@ function timerClass() {
 					timerArray.splice(i,1);
 				}
 			}
-			console.log(timerArray);
 		},
 		toggleStartPause = function(){
 			if(counter.getRunning() === true){
@@ -197,6 +224,11 @@ function timerClass() {
 				displayDiv.classList.add("timer__display");
 				timerContainer.append(displayDiv);
 
+				// icon
+				statusIcon = document.createElement("i");
+				statusIcon.classList.add("fas", "timer__icon");
+				timerContainer.append(statusIcon);
+
 				// counter
 				counter = counterClass(displayDiv);
 				counter.reset();
@@ -211,6 +243,9 @@ function timerClass() {
 				if(counter){
 					if(counter.getRunning() === false){
 						startPauseButton.innerText = "pause";
+						timerContainer.classList.add("playing");
+						statusIcon.classList.remove("fa-pause");
+						statusIcon.classList.add("fa-play");
 						counter.start();
 					}
 				}
@@ -219,8 +254,16 @@ function timerClass() {
 				if(counter){
 					if(counter.getRunning() === true){
 						startPauseButton.innerText = "start";
+						timerContainer.classList.remove("playing");
+						statusIcon.classList.remove("fa-play");
+						statusIcon.classList.add("fa-pause");
 						counter.stop();
 					}
+				}
+			},
+			resetCounter: function(e){
+				if(counter){
+					counter.reset();
 				}
 			}
 		}
