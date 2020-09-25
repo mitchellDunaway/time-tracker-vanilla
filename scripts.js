@@ -187,7 +187,7 @@ function timerClass() {
 			}			
 		},
 		newObj = {
-			createTimer: function(target, name){
+			'createTimer': function(target, name){
 
 				// timer container
 				timerContainer = document.createElement("div");
@@ -219,6 +219,42 @@ function timerClass() {
 				removeButton.addEventListener("click", removeTimer)	;
 				timerContainer.append(removeButton);
 
+				// increment Hours
+				incrementHoursButton = document.createElement("button");
+				incrementHoursButton.innerHTML = "<i class=\"fas fa-caret-up\"></i>";
+				incrementHoursButton.classList.add("timer__increment", "timer__hours", "timer__set-time", "container__button");
+				timerContainer.append(incrementHoursButton);
+
+				// decrement Hours
+				decrementHoursButton = document.createElement("button");
+				decrementHoursButton.innerHTML = "<i class=\"fas fa-caret-down\"></i>";
+				decrementHoursButton.classList.add("timer__decrement", "timer__hours", "timer__set-time", "container__button");
+				timerContainer.append(decrementHoursButton);
+
+				// increment minutes
+				incrementMinutesButton = document.createElement("button");
+				incrementMinutesButton.innerHTML = "<i class=\"fas fa-caret-up\"></i>";
+				incrementMinutesButton.classList.add("timer__increment", "timer__minutes", "timer__set-time", "container__button");
+				timerContainer.append(incrementMinutesButton);
+
+				// decrement minutes
+				decrementMinutesButton = document.createElement("button");
+				decrementMinutesButton.innerHTML = "<i class=\"fas fa-caret-down\"></i>";
+				decrementMinutesButton.classList.add("timer__decrement", "timer__minutes", "timer__set-time", "container__button");
+				timerContainer.append(decrementMinutesButton);
+
+				// increment Seconds
+				incrementSecondsButton = document.createElement("button");
+				incrementSecondsButton.innerHTML = "<i class=\"fas fa-caret-up\"></i>";
+				incrementSecondsButton.classList.add("timer__increment", "timer__seconds", "timer__set-time", "container__button");
+				timerContainer.append(incrementSecondsButton);
+
+				// decrement Seconds
+				decrementSecondsButton = document.createElement("button");
+				decrementSecondsButton.innerHTML = "<i class=\"fas fa-caret-down\"></i>";
+				decrementSecondsButton.classList.add("timer__decrement", "timer__seconds", "timer__set-time", "container__button");
+				timerContainer.append(decrementSecondsButton);
+
 				// display
 				displayDiv = document.createElement("div");
 				displayDiv.classList.add("timer__display");
@@ -234,12 +270,19 @@ function timerClass() {
 				counter.reset();
 				startPauseButton.addEventListener("click", toggleStartPause);
 				resetButton.addEventListener("click", counter.reset);
+				incrementHoursButton.addEventListener("click", counter.incrementHours);
+				decrementHoursButton.addEventListener("click", counter.decrementHours);
+				incrementMinutesButton.addEventListener("click", counter.incrementMinutes);
+				decrementMinutesButton.addEventListener("click", counter.decrementMinutes);
+				incrementSecondsButton.addEventListener("click", counter.incrementSeconds);
+				decrementSecondsButton.addEventListener("click", counter.decrementSeconds);
+
 
 				// print to DOM
 				target.appendChild(timerContainer);
 
 			},
-			startCounter: function(e){
+			'startCounter': function(e){
 				if(counter){
 					if(counter.getRunning() === false){
 						startPauseButton.innerText = "pause";
@@ -250,7 +293,7 @@ function timerClass() {
 					}
 				}
 			},
-			pauseCounter: function(e){
+			'pauseCounter': function(e){
 				if(counter){
 					if(counter.getRunning() === true){
 						startPauseButton.innerText = "start";
@@ -261,7 +304,7 @@ function timerClass() {
 					}
 				}
 			},
-			resetCounter: function(e){
+			'resetCounter': function(e){
 				if(counter){
 					counter.reset();
 				}
@@ -288,12 +331,12 @@ function counterClass(timerDisplayDiv) {
 			currentDate = new Date;
 			intervalDate = new Date(0);
 		},
-		incrementCounter = function () {
+		runCounter = function () {
 			currentDate = new Date;
 			intervalDate.setTime( currentDate.getTime() - initialDate.getTime() );
 			printTotal();
 			if (running) {
-				setTimeout(incrementCounter, 1);
+				setTimeout(runCounter, 1);
 			}
 		},
 		printTotal = function(){
@@ -314,7 +357,7 @@ function counterClass(timerDisplayDiv) {
 			'start': function (event) {				
 				running = true;	
 				beginNewInterval();
-				incrementCounter();
+				runCounter();
 			},
 			'stop': function (event) {				
 				running = false;
@@ -329,6 +372,30 @@ function counterClass(timerDisplayDiv) {
 			},
 			'getRunning': function(){
 				return running;
+			},
+			'incrementHours': function(){
+				cumulativeDate.setHours(cumulativeDate.getHours() + 1);
+				printTotal();
+			},
+			'decrementHours': function(){
+				cumulativeDate.setHours(cumulativeDate.getHours() - 1);
+				printTotal();
+			},
+			'incrementMinutes': function(){
+				cumulativeDate.setMinutes(cumulativeDate.getMinutes() + 1);
+				printTotal();
+			},
+			'decrementMinutes': function(){
+				cumulativeDate.setMinutes(cumulativeDate.getMinutes() - 1);
+				printTotal();
+			},
+			'incrementSeconds': function(){
+				cumulativeDate.setSeconds(cumulativeDate.getSeconds() + 1);
+				printTotal();
+			},
+			'decrementSeconds': function(){
+				cumulativeDate.setSeconds(cumulativeDate.getSeconds() - 1);
+				printTotal();
 			}
 		}
 	;	

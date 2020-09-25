@@ -14,6 +14,10 @@ Reset stuff
 	font-size: inherit;
 }
 
+*:focus{
+	outline: none;
+}
+
 html {
 	font-family: 'Anonymous Pro', monospace;
 	font-size: 62.5%;
@@ -51,10 +55,6 @@ Clearfix
 	background: hsl(398 50% 94% / 1);
 	box-shadow: 0px 1px 3px rgba(0,0,0,.5);
 	position: relative;
-}
-
-.container.playing {
-	border: 3px solid hsl(220 68% 80% / 1);
 }
 
 .container__button {
@@ -108,25 +108,52 @@ Clearfix
 .timer__display {
 	background: hsl(40deg 67% 88%);
 	color: hsl(40 95% 30% / 1);
-	padding: 1rem;
+	padding: .5rem 6rem;
 	font-size: 4rem;
 	text-align: right;
 	text-shadow: 2px 2px rgba(0,0,0,.1);
 	border-radius: 10px;
 	box-shadow: inset 2px 2px 2px rgba(0,0,0,.1);
-	margin: 1rem 0 0;
+	margin: 2.6rem 0;
+	border: .3rem solid hsl(0 78% 70% / 0);
+}
+
+.playing .timer__display {
+	border: .3rem solid hsl(0 78% 70% / 1);
 }
 
 .timer__icon {
 	position: absolute;
-	left: 2rem;
-	bottom: 2rem;
+	right: 2rem;
+	bottom: 4.5rem;
 	font-size: 4rem;
-	color: hsl(40 40% 70% / 1);
+	color: hsl(0 0% 0% / .1);
 }
 
-.playing .timer__icon {
-	color: hsl(220 68% 80% / 1);
+.timer__set-time {
+	position: absolute;
+	padding: 0 .25rem;
+	min-width: 6rem;
+}
+
+.timer__increment {
+	bottom: 8.75rem;
+}
+
+.timer__decrement {
+    bottom: 0rem;
+}
+
+.timer__hours {
+	right: 18.4rem;    
+}
+
+.timer__minutes {
+	right: 11.95rem;
+}
+
+.timer__seconds {
+	right: 5.5rem;
 }
 
 
