@@ -16,7 +16,7 @@ A tool for tracking how long multiple simultaneous things take.
 	* [x] add placeholder text or a label
 * [x] playing timers should be very easy to differentiate from paused timers
 * [x] allow editing of counters: adjust time with arrows
-* [ ] timers should animate disappearance when removed
+* [x] timers should animate disappearance when removed
 * [ ] install Sass
 * [ ] refactor CSS with Sass
 	* [ ] components
