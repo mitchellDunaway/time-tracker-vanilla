@@ -54,9 +54,14 @@ function globalActionsClass(){
 			}
 		},
 		removeAll = function(e){
-			timerArray = [];
-			// I'd prefer not to use innerHTML in general, but I can't think of a better way to do this
-			startingElements.timerWrapper.innerHTML = "";
+			for(let i in timerArray){
+				timerArray[i].addClassToTimer("container--disappear");
+			}
+			setTimeout(() => {
+				timerArray = [];
+				// I'd prefer not to use innerHTML in general, but I can't think of a better way to do this
+				startingElements.timerWrapper.innerHTML = "";
+			}, 450);
 		},
 		newObj = {
 			'updateDOM': function(target){
@@ -129,7 +134,7 @@ function adderClass(){
 				timerNameField.classList.add("adder__textfield");
 				timerNameField.placeholder = "Timer Name";
 				timerNameField.addEventListener("keydown", e => {
-					if(e.code === "Enter"){
+					if(e.code === "Enter" || e.code === "NumpadEnter"){
 						createNewTimerAndStart();
 					}
 				});
@@ -170,14 +175,7 @@ function timerClass() {
 		nameTitle,
 		statusIcon,
 		removeTimer = function(){
-			// remove and delete timer
-			timerContainer.remove();
-			// remove it from the array
-			for (let i in timerArray){
-				if(timerArray[i] === newObj){
-					timerArray.splice(i,1);
-				}
-			}
+
 		},
 		toggleStartPause = function(){
 			if(counter.getRunning() === true){
@@ -191,7 +189,7 @@ function timerClass() {
 
 				// timer container
 				timerContainer = document.createElement("div");
-				timerContainer.classList.add("timer", "container");
+				timerContainer.classList.add("timer", "container", "container--appear");
 				timerContainer.id = name;
 
 				// name
@@ -216,7 +214,19 @@ function timerClass() {
 				removeButton = document.createElement("button");
 				removeButton.innerText = "remove";
 				removeButton.classList.add("timer__remove", "container__button");
-				removeButton.addEventListener("click", removeTimer)	;
+				removeButton.addEventListener("click", () => {	
+					this.addClassToTimer("container--disappear");
+					setTimeout(()=>{
+						// remove and delete timer
+						timerContainer.remove();
+						// remove it from the array
+						for (let i in timerArray){
+							if(timerArray[i] === newObj){
+								timerArray.splice(i,1);
+							}
+						}
+					}, 450);
+				});
 				timerContainer.append(removeButton);
 
 				// increment Hours
@@ -308,6 +318,9 @@ function timerClass() {
 				if(counter){
 					counter.reset();
 				}
+			},
+			'addClassToTimer': function(newClass){
+				timerContainer.classList.add(newClass);
 			}
 		}
 	;

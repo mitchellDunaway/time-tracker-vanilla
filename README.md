@@ -15,12 +15,19 @@ A tool for tracking how long multiple simultaneous things take.
 	* [x] pressing enter should add timer
 	* [x] add placeholder text or a label
 * [x] playing timers should be very easy to differentiate from paused timers
-* [ ] allow editing of counters: adjust time with arrows
+* [x] allow editing of counters: adjust time with arrows
 * [ ] timers should animate disappearance when removed
-* [ ] allow one timer to be put in document title
-* [ ] use flex-box to lay out the timers
-* [ ] make it responsive!
+* [ ] install Sass
+* [ ] refactor CSS with Sass
+	* [ ] components
+	* [ ] responsive
+	* [ ] flex-box
+* [ ] determine compatibility requirements (targeted browsers and ES6 features)
+* [ ] refactor using ES6
+* [ ] refactor animation to use [layout-tween](https://www.npmjs.com/package/layout-tween)
+* [ ] allow one counter to be put in document title
 * [ ] rebuild as a [React project](https://github.com/mitchellDunaway/time-tracker)
+* [ ] allow the timers to be reordered by drag and drop
 * [ ] add a desktop alert if a timer has been paused for given amount of time
 
 ### stretch-goals

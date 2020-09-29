@@ -55,6 +55,16 @@ Clearfix
 	background: hsl(398 50% 94% / 1);
 	box-shadow: 0px 1px 3px rgba(0,0,0,.5);
 	position: relative;
+	backface-visibility: hidden;
+	transform-origin: top center;
+}
+
+.container--appear {		
+	animation: appearUp .5s ease-out;
+}
+
+.container--disappear {
+	animation: disappearUp .5s ease-out;
 }
 
 .container__button {
@@ -115,7 +125,7 @@ Clearfix
 	border-radius: 10px;
 	box-shadow: inset 2px 2px 2px rgba(0,0,0,.1);
 	margin: 2.6rem 0;
-	border: .3rem solid hsl(0 78% 70% / 0);
+	border: .3rem solid hsl(398 50% 94% / 1);
 }
 
 .playing .timer__display {
@@ -125,7 +135,7 @@ Clearfix
 .timer__icon {
 	position: absolute;
 	right: 2rem;
-	bottom: 4.5rem;
+	bottom: 4.2rem;
 	font-size: 4rem;
 	color: hsl(0 0% 0% / .1);
 }
@@ -156,4 +166,29 @@ Clearfix
 	right: 5.5rem;
 }
 
+/* animation definitions */
+@keyframes appearUp {
+	0% {
+		opacity: 0;
+		transform: translateY(1rem);
+		margin-top: 1rem;
+	}
 
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+		margin-top: inherit;
+	}
+
+}
+
+@keyframes disappearUp {
+	0% {
+		opacity: auto;
+	}
+
+	100% {
+		opacity: 0;	
+	}
+
+}
