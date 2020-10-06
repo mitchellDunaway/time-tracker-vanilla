@@ -1,0 +1,23 @@
+{
+  "name": "time-tracker-vanilla",
+  "version": "1.0.0",
+  "description": "A tool for tracking how long multiple simultaneous things take.",
+  "main": "scripts.js",
+  "scripts": {
+	"test": "echo \"Error: no test specified\" && exit 1",
+	"compile:sass": "node-sass sass/main.scss dist/css/style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mitchellDunaway/time-tracker-vanilla.git"
+  },
+  "author": "Mitchell Dunaway",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mitchellDunaway/time-tracker-vanilla/issues"
+  },
+  "homepage": "https://github.com/mitchellDunaway/time-tracker-vanilla#readme",
+  "devDependencies": {
+    "npm-sass": "^2.3.0"
+  }
+}

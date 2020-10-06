@@ -1,0 +1,52 @@
+/* main and container */
+
+.main {
+	margin: 0 auto;
+	width: 60rem;
+	padding: 2rem;
+	font-size: 2rem;
+}
+
+.container {
+	border: 3px solid hsla(40, 68%, 88%, 1);
+	padding: 1rem;
+	border-radius: 2rem;
+	margin: 1rem 0;
+	background: hsla(398, 50%, 94%, 1);
+	box-shadow: 0px 1px 3px rgba(0,0,0,.5);
+	position: relative;
+	backface-visibility: hidden;
+	transform-origin: top center;
+
+	&--appear {		
+		animation: appearUp .5s ease-out;
+	}
+	
+	&--disappear {
+		animation: disappearUp .5s ease-out;
+	}
+
+	&__button {
+		padding: .5rem 1rem;
+		margin: 1rem 1rem 1rem 0;
+		border: none;
+		border-radius: 5px;
+		min-width: 10rem;
+		background: hsla(40, 30%, 90%, 1);
+		color: hsla(40, 95%, 30%, 1);
+		text-transform: uppercase;
+		cursor: pointer;
+
+		&:focus {
+			outline: none;
+		}
+		
+		&:hover {
+			
+			background: hsla(40, 30%, 88%, 1);
+		}
+
+	}	
+
+}
+

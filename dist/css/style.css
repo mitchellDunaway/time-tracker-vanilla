@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&display=swap");
+/* Reset stuff */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-family: inherit;
+  font-size: inherit; }
+
+*:focus {
+  outline: none; }
+
+html {
+  font-family: 'Anonymous Pro', monospace;
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box;
+  background: #e7fef7;
+  color: #956504; }
+
+/*
+Clearfix
+*/
+.clearfix::after {
+  content: '';
+  display: table;
+  clear: both; }
+
+/* main and container */
+.main {
+  margin: 0 auto;
+  width: 60rem;
+  padding: 2rem;
+  font-size: 2rem; }
+
+.container {
+  border: 3px solid #f5e7cc;
+  padding: 1rem;
+  border-radius: 2rem;
+  margin: 1rem 0;
+  background: #f7f2e8;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+  position: relative;
+  backface-visibility: hidden;
+  transform-origin: top center; }
+  .container--appear {
+    animation: appearUp .5s ease-out; }
+  .container--disappear {
+    animation: disappearUp .5s ease-out; }
+  .container__button {
+    padding: .5rem 1rem;
+    margin: 1rem 1rem 1rem 0;
+    border: none;
+    border-radius: 5px;
+    min-width: 10rem;
+    background: #ede8de;
+    color: #956504;
+    text-transform: uppercase;
+    cursor: pointer; }
+    .container__button:focus {
+      outline: none; }
+    .container__button:hover {
+      background: #eae3d7; }
+
+/* adder */
+.adder-wrapper {
+  margin: 1rem 0; }
+
+.adder__textfield {
+  padding: .5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  display: block;
+  width: 100%; }
+  .adder__textfield::placeholder {
+    color: #CCC; }
+
+/* timer something */
+.timer__name {
+  font-size: 3rem;
+  font-weight: 600;
+  padding: 0 1rem;
+  margin: 0 0 1rem; }
+
+.timer__display {
+  color: #956504;
+  padding: .5rem 6rem;
+  font-size: 4rem;
+  text-align: right;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.1);
+  margin: 2.6rem 0;
+  border: 0.3rem solid #f7f2e8; }
+
+.timer .playing {
+  background: red; }
+
+.playing .timer__display {
+  border: 0.3rem solid #ee7777; }
+
+.timer__icon {
+  position: absolute;
+  right: 2rem;
+  bottom: 4.2rem;
+  font-size: 4rem;
+  color: rgba(0, 0, 0, 0.1); }
+
+.timer__set-time {
+  position: absolute;
+  padding: 0 .25rem;
+  min-width: 6rem; }
+
+.timer__increment {
+  bottom: 8.75rem; }
+
+.timer__decrement {
+  bottom: 0rem; }
+
+.timer__hours {
+  right: 18.4rem; }
+
+.timer__minutes {
+  right: 11.95rem; }
+
+.timer__seconds {
+  right: 5.5rem; }
+
+/* animation definitions */
+@keyframes appearUp {
+  0% {
+    opacity: 0;
+    transform: translateY(1rem);
+    margin-top: 1rem; }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    margin-top: inherit; } }
+
+@keyframes disappearUp {
+  0% {
+    opacity: auto; }
+  100% {
+    opacity: 0; } }

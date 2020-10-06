@@ -1,0 +1,17 @@
+/* adder */
+
+.adder-wrapper {
+	margin: 1rem 0;
+}
+
+.adder__textfield {
+	padding: .5rem 1rem;
+	border: none;
+	border-radius: 5px;
+	display: block;
+	width: 100%;
+
+	&::placeholder {
+		color: #CCC;
+	}
+}

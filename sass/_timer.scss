@@ -1,0 +1,63 @@
+/* timer something */
+
+.timer {
+	
+	&__name {
+		font-size: 3rem;
+		font-weight: 600;
+		padding: 0 1rem;
+		margin: 0 0 1rem;
+	}
+	
+	&__display {
+		// background: hsla(40, 67%, 88%,1);
+		color: hsla(40, 95%, 30%, 1);
+		padding: .5rem 6rem;
+		font-size: 4rem;
+		text-align: right;
+		text-shadow: 2px 2px rgba(0,0,0,.1);
+		border-radius: 10px;
+		box-shadow: inset 2px 2px 2px rgba(0,0,0,.1);
+		margin: 2.6rem 0;
+		border: .3rem solid hsla(398, 50%, 94%, 1);
+	}
+	
+	.playing &__display {
+		border: .3rem solid hsla(0, 78%, 70%, 1);
+	}
+	
+	&__icon {
+		position: absolute;
+		right: 2rem;
+		bottom: 4.2rem;
+		font-size: 4rem;
+		color: hsla(0, 0%, 0%, .1);
+	}
+	
+	&__set-time {
+		position: absolute;
+		padding: 0 .25rem;
+		min-width: 6rem;
+	}
+	
+	&__increment {
+		bottom: 8.75rem;
+	}
+	
+	&__decrement {
+		bottom: 0rem;
+	}
+	
+	&__hours {
+		right: 18.4rem;    
+	}
+	
+	&__minutes {
+		right: 11.95rem;
+	}
+	
+	&__seconds {
+		right: 5.5rem;
+	}
+
+}

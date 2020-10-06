@@ -1,0 +1,26 @@
+/* animation definitions */
+@keyframes appearUp {
+	0% {
+		opacity: 0;
+		transform: translateY(1rem);
+		margin-top: 1rem;
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+		margin-top: inherit;
+	}
+
+}
+
+@keyframes disappearUp {
+	0% {
+		opacity: auto;
+	}
+
+	100% {
+		opacity: 0;	
+	}
+
+}

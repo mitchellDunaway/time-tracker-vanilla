@@ -17,9 +17,13 @@ A tool for tracking how long multiple simultaneous things take.
 * [x] playing timers should be very easy to differentiate from paused timers
 * [x] allow editing of counters: adjust time with arrows
 * [x] timers should animate disappearance when removed
-* [ ] install Sass
+* [x] npm init
+* [x] install Sass
 * [ ] refactor CSS with Sass
-	* [ ] components
+	* [x] components
+	* [x] nesting
+	* [ ] variables
+	* [ ] mixins
 	* [ ] responsive
 	* [ ] flex-box
 * [ ] determine compatibility requirements (targeted browsers and ES6 features)
