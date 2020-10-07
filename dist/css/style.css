@@ -18,7 +18,7 @@ html {
 
 body {
   box-sizing: border-box;
-  background: #e7fef7;
+  background: #ede8de;
   color: #956504; }
 
 /*
@@ -59,11 +59,16 @@ Clearfix
     background: #ede8de;
     color: #956504;
     text-transform: uppercase;
-    cursor: pointer; }
+    cursor: pointer;
+    transition: all .1s; }
     .container__button:focus {
       outline: none; }
     .container__button:hover {
-      background: #eae3d7; }
+      transform: translateY(-3px);
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5); }
+    .container__button:active {
+      transform: translateY(1px);
+      box-shadow: none; }
 
 /* adder */
 .adder-wrapper {
@@ -86,28 +91,26 @@ Clearfix
   margin: 0 0 1rem; }
 
 .timer__display {
+  background: #f5e7cc;
   color: #956504;
   padding: .5rem 6rem;
   font-size: 4rem;
   text-align: right;
-  text-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.1);
   margin: 2.6rem 0;
   border: 0.3rem solid #f7f2e8; }
 
-.timer .playing {
-  background: red; }
-
 .playing .timer__display {
-  border: 0.3rem solid #ee7777; }
+  border: 0.3rem solid #956504; }
 
 .timer__icon {
   position: absolute;
   right: 2rem;
-  bottom: 4.2rem;
+  bottom: 4.4rem;
   font-size: 4rem;
-  color: rgba(0, 0, 0, 0.1); }
+  color: #f7f2e8; }
 
 .timer__set-time {
   position: absolute;

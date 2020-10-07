@@ -10,28 +10,28 @@
 	}
 	
 	&__display {
-		// background: hsla(40, 67%, 88%,1);
-		color: hsla(40, 95%, 30%, 1);
+		background: $color-2;
+		color: $color-4;
 		padding: .5rem 6rem;
 		font-size: 4rem;
 		text-align: right;
-		text-shadow: 2px 2px rgba(0,0,0,.1);
+		text-shadow: $shadow-2;
 		border-radius: 10px;
-		box-shadow: inset 2px 2px 2px rgba(0,0,0,.1);
+		box-shadow: inset $shadow-2;
 		margin: 2.6rem 0;
-		border: .3rem solid hsla(398, 50%, 94%, 1);
+		border: .3rem solid $color-1;
 	}
 	
 	.playing &__display {
-		border: .3rem solid hsla(0, 78%, 70%, 1);
+		border: .3rem solid $color-4;
 	}
 	
 	&__icon {
 		position: absolute;
 		right: 2rem;
-		bottom: 4.2rem;
+		bottom: 4.4rem;
 		font-size: 4rem;
-		color: hsla(0, 0%, 0%, .1);
+		color: $color-1;
 	}
 	
 	&__set-time {

@@ -22,7 +22,7 @@ A tool for tracking how long multiple simultaneous things take.
 * [ ] refactor CSS with Sass
 	* [x] components
 	* [x] nesting
-	* [ ] variables
+	* [x] variables
 	* [ ] mixins
 	* [ ] responsive
 	* [ ] flex-box
