@@ -1,0 +1,21 @@
+/* global actions */
+
+.global-actions {
+	// sprue styles
+	background: red;
+	// layout
+	display: flex;
+	justify-content: space-between;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	// dimensions
+	width: 100%;
+	//layers
+	z-index: 9;
+
+	&__button {
+		display: block;
+	}
+
+}

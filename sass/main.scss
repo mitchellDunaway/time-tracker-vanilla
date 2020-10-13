@@ -1,8 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&display=swap');
+
 @import 'variables';
 @import 'reset';
 @import 'utilities';
+
+@import 'wrapper';
 @import 'container';
+
+@import 'global-actions';
 @import 'adder';
 @import 'timer';
 @import 'animation';

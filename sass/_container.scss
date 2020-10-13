@@ -1,11 +1,4 @@
-/* main and container */
-
-.main {
-	margin: 0 auto;
-	width: 60rem;
-	padding: 2rem;
-	font-size: 2rem;
-}
+/* container */
 
 .container {
 	border: 3px solid $color-2;
@@ -17,6 +10,7 @@
 	position: relative;
 	backface-visibility: hidden;
 	transform-origin: top center;
+	display: inline-block;
 
 	&--appear {		
 		animation: appearUp .5s ease-out;

@@ -23,8 +23,8 @@ A tool for tracking how long multiple simultaneous things take.
 	* [x] components
 	* [x] nesting
 	* [x] variables
-	* [ ] mixins
 	* [ ] responsive
+		* [ ] 
 	* [ ] flex-box
 * [ ] determine compatibility requirements (targeted browsers and ES6 features)
 * [ ] refactor using ES6

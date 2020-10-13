@@ -67,32 +67,32 @@ function globalActionsClass(){
 			'updateDOM': function(target){
 				// Global Actions container
 				globalActionsContainer = document.createElement("div");
-				globalActionsContainer.classList.add("global-actions", "container");
+				globalActionsContainer.classList.add("global-actions");
 
 				// pause button
 				pauseAllButton = document.createElement("button");
-				pauseAllButton.classList.add("container__button");
+				pauseAllButton.classList.add("global-actions__button");
 				pauseAllButton.innerText = "Pause All";
 				pauseAllButton.addEventListener("click", pauseAll);			
 				globalActionsContainer.appendChild(pauseAllButton);
 
 				// play button
 				playAllButton = document.createElement("button");
-				playAllButton.classList.add("container__button");
+				playAllButton.classList.add("global-actions__button");
 				playAllButton.innerText = "Play All";
 				playAllButton.addEventListener("click", playAll);			
 				globalActionsContainer.appendChild(playAllButton);
 				
 				// reset button
 				resetAllButton = document.createElement("button");
-				resetAllButton.classList.add("container__button");
+				resetAllButton.classList.add("global-actions__button");
 				resetAllButton.innerText = "Reset All";
 				resetAllButton.addEventListener("click", resetAll);			
 				globalActionsContainer.appendChild(resetAllButton);
 				
 				// remove button
 				removeAllButton = document.createElement("button");
-				removeAllButton.classList.add("container__button");
+				removeAllButton.classList.add("global-actions__button");
 				removeAllButton.innerText = "Remove All";
 				removeAllButton.addEventListener("click", removeAll);			
 				globalActionsContainer.appendChild(removeAllButton);		
@@ -125,7 +125,7 @@ function adderClass(){
 			'updateDOM': function(target){
 				// adder container
 				adderContainer = document.createElement("div");
-				adderContainer.classList.add("adder", "container");
+				adderContainer.classList.add("adder");
 				
 				// name textfield
 				timerNameField = document.createElement("input");
