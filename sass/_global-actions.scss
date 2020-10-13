@@ -11,11 +11,13 @@
 	left: 0;
 	// dimensions
 	width: 100%;
+	padding: 1rem;
 	//layers
 	z-index: 9;
 
 	&__button {
 		display: block;
+		
 	}
 
 }

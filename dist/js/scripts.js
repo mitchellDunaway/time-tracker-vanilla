@@ -76,12 +76,22 @@ function globalActionsClass(){
 				pauseAllButton.addEventListener("click", pauseAll);			
 				globalActionsContainer.appendChild(pauseAllButton);
 
+				// pause icon
+				pauseIcon = document.createElement("i");
+				pauseIcon.classList.add("fas", "fa-pause-circle");
+				pauseAllButton.append(pauseIcon);
+
 				// play button
 				playAllButton = document.createElement("button");
 				playAllButton.classList.add("global-actions__button");
 				playAllButton.innerText = "Play All";
 				playAllButton.addEventListener("click", playAll);			
 				globalActionsContainer.appendChild(playAllButton);
+
+				// play icon
+				playIcon = document.createElement("i");
+				playIcon.classList.add("fas", "fa-play-circle");
+				playAllButton.append(playIcon);				
 				
 				// reset button
 				resetAllButton = document.createElement("button");
@@ -89,13 +99,23 @@ function globalActionsClass(){
 				resetAllButton.innerText = "Reset All";
 				resetAllButton.addEventListener("click", resetAll);			
 				globalActionsContainer.appendChild(resetAllButton);
+
+				// reset icon
+				resetIcon = document.createElement("i");
+				resetIcon.classList.add("fas", "fa-undo-alt");
+				resetAllButton.append(resetIcon);						
 				
 				// remove button
 				removeAllButton = document.createElement("button");
 				removeAllButton.classList.add("global-actions__button");
 				removeAllButton.innerText = "Remove All";
 				removeAllButton.addEventListener("click", removeAll);			
-				globalActionsContainer.appendChild(removeAllButton);		
+				globalActionsContainer.appendChild(removeAllButton);	
+				
+				// remove icon
+				removeIcon = document.createElement("i");
+				removeIcon.classList.add("fas", "fa-trash-alt");
+				removeAllButton.append(removeIcon);					
 
 				// print to DOM
 				target.appendChild(globalActionsContainer);
