@@ -82,6 +82,8 @@ Clearfix
   width: 100%;
   padding: 1rem;
   z-index: 9; }
+  .global-actions__button {
+    display: block; }
 
 /* adder */
 .adder-wrapper {
