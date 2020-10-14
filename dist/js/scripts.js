@@ -78,8 +78,8 @@ function globalActionsClass(){
 
 				// pause icon
 				pauseIcon = document.createElement("i");
-				pauseIcon.classList.add("fas", "fa-pause-circle");
-				pauseAllButton.append(pauseIcon);
+				pauseIcon.classList.add("fas", "fa-pause-circle", "global-actions__icon");
+				pauseAllButton.prepend(pauseIcon);
 
 				// play button
 				playAllButton = document.createElement("button");
@@ -90,8 +90,8 @@ function globalActionsClass(){
 
 				// play icon
 				playIcon = document.createElement("i");
-				playIcon.classList.add("fas", "fa-play-circle");
-				playAllButton.append(playIcon);				
+				playIcon.classList.add("fas", "fa-play-circle", "global-actions__icon");
+				playAllButton.prepend(playIcon);				
 				
 				// reset button
 				resetAllButton = document.createElement("button");
@@ -102,8 +102,8 @@ function globalActionsClass(){
 
 				// reset icon
 				resetIcon = document.createElement("i");
-				resetIcon.classList.add("fas", "fa-undo-alt");
-				resetAllButton.append(resetIcon);						
+				resetIcon.classList.add("fas", "fa-undo-alt", "global-actions__icon");
+				resetAllButton.prepend(resetIcon);						
 				
 				// remove button
 				removeAllButton = document.createElement("button");
@@ -114,8 +114,8 @@ function globalActionsClass(){
 				
 				// remove icon
 				removeIcon = document.createElement("i");
-				removeIcon.classList.add("fas", "fa-trash-alt");
-				removeAllButton.append(removeIcon);					
+				removeIcon.classList.add("fas", "fa-trash-alt", "global-actions__icon");
+				removeAllButton.prepend(removeIcon);					
 
 				// print to DOM
 				target.appendChild(globalActionsContainer);

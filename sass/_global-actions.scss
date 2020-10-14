@@ -1,8 +1,10 @@
 /* global actions */
 
 .global-actions {
-	// sprue styles
-	background: red;
+	// look
+	background: $color-1;
+	box-shadow: $shadow-1;
+	border-top: $border-1;
 	// layout
 	display: flex;
 	justify-content: space-between;
@@ -14,10 +16,24 @@
 	padding: 1rem;
 	//layers
 	z-index: 9;
+	// typography
+	font-size: 1rem;
+	color: $color-4;
 
 	&__button {
 		display: block;
-		
+		background: none;
+		border: none;
+	}
+
+	&__icon {
+		font-size: 3rem;
+		display: block;
+		color: $color-4;
+		border: 3px solid $color-4;
+		padding: 1rem;
+		border-radius: 1rem;
+		margin: 0 0 .5rem;
 	}
 
 }
