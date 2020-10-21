@@ -6,6 +6,15 @@
 
 .adder {
 
+	&::before {
+		content: url(../svg/times-circle.svg);
+		display: block;
+		width: 100px;
+		height: 100px;
+		color: inherit;
+	}
+
+
 	&__textfield {
 		padding: .5rem 1rem;
 		border: none;
