@@ -281,47 +281,63 @@ function timerClass() {
 				displayDiv.classList.add("timer__display");
 				timerContainer.append(displayDiv);
 
+				// secondsDisplay
+				secondsDisplayDiv = document.createElement("div");
+				secondsDisplayDiv.classList.add("timer__secondsDisplay");
+				displayDiv.append(secondsDisplayDiv);
+
+				// minutesDisplay
+				minutesDisplayDiv = document.createElement("div");
+				minutesDisplayDiv.classList.add("timer__minutesDisplay");
+				displayDiv.append(minutesDisplayDiv);
+
+				// hoursDisplay
+				hoursDisplayDiv = document.createElement("div");
+				hoursDisplayDiv.classList.add("timer__hoursDisplay");
+				displayDiv.append(hoursDisplayDiv);
+
 				// increment Hours
 				incrementHoursButton = document.createElement("button");
 				incrementHoursButton.innerHTML = "<i class=\"fas fa-caret-up\"></i>";
-				incrementHoursButton.classList.add("timer__increment", "timer__hours", "timer__set-time", "timer__button");
+				incrementHoursButton.classList.add("timer__set-time");
 				displayDiv.append(incrementHoursButton);
 
 				// decrement Hours
 				decrementHoursButton = document.createElement("button");
 				decrementHoursButton.innerHTML = "<i class=\"fas fa-caret-down\"></i>";
-				decrementHoursButton.classList.add("timer__decrement", "timer__hours", "timer__set-time", "timer__button");
+				decrementHoursButton.classList.add("timer__set-time");
 				displayDiv.append(decrementHoursButton);
 
 				// increment minutes
 				incrementMinutesButton = document.createElement("button");
 				incrementMinutesButton.innerHTML = "<i class=\"fas fa-caret-up\"></i>";
-				incrementMinutesButton.classList.add("timer__increment", "timer__minutes", "timer__set-time", "timer__button");
+				incrementMinutesButton.classList.add("timer__set-time");
 				displayDiv.append(incrementMinutesButton);
 
 				// decrement minutes
 				decrementMinutesButton = document.createElement("button");
 				decrementMinutesButton.innerHTML = "<i class=\"fas fa-caret-down\"></i>";
-				decrementMinutesButton.classList.add("timer__decrement", "timer__minutes", "timer__set-time", "timer__button");
+				decrementMinutesButton.classList.add("timer__set-time");
 				displayDiv.append(decrementMinutesButton);
 
 				// increment Seconds
 				incrementSecondsButton = document.createElement("button");
 				incrementSecondsButton.innerHTML = "<i class=\"fas fa-caret-up\"></i>";
-				incrementSecondsButton.classList.add("timer__increment", "timer__seconds", "timer__set-time", "timer__button");
+				incrementSecondsButton.classList.add("timer__set-time");
 				displayDiv.append(incrementSecondsButton);
 
 				// decrement Seconds
 				decrementSecondsButton = document.createElement("button");
 				decrementSecondsButton.innerHTML = "<i class=\"fas fa-caret-down\"></i>";
-				decrementSecondsButton.classList.add("timer__decrement", "timer__seconds", "timer__set-time", "timer__button");
+				decrementSecondsButton.classList.add("timer__set-time");
 				displayDiv.append(decrementSecondsButton);
 
-
-
 				// counter
-				counter = counterClass(displayDiv);
+				counter = counterClass();
 				counter.reset();
+				counter.setSecondsDisplay(secondsDisplayDiv);
+				counter.setMinutesDisplay(minutesDisplayDiv);
+				counter.setHoursDisplay(hoursDisplayDiv);
 				startPauseButton.addEventListener("click", toggleStartPause);
 				resetButton.addEventListener("click", counter.reset);
 				incrementHoursButton.addEventListener("click", counter.incrementHours);
@@ -370,7 +386,7 @@ function timerClass() {
 
 
 
-function counterClass(timerDisplayDiv) {
+function counterClass() {
 
 	var
 		initialDate,
@@ -378,6 +394,10 @@ function counterClass(timerDisplayDiv) {
 		intervalDate,
 		cumulativeDate,
 		totalDate,
+		secondsDisplay,
+		minutesDisplay,
+		hoursDisplay,
+		totalDisplay,
 		running = false,
 		beginNewInterval = function () {
 			initialDate = new Date;
@@ -398,7 +418,18 @@ function counterClass(timerDisplayDiv) {
 			} else {
 				totalDate = new Date(0);
 			}
-			timerDisplayDiv.innerText = totalDate.toISOString().substr(11, 8);
+			if(typeof secondsDisplay !== 'undefined'){
+				secondsDisplay.innerText = totalDate.toISOString().substr(17, 2);
+			}
+			if(typeof minutesDisplay !== 'undefined'){
+				minutesDisplay.innerText = totalDate.toISOString().substr(14, 2);
+			}
+			if(typeof hoursDisplay !== 'undefined'){
+				hoursDisplay.innerText = totalDate.toISOString().substr(11, 2);
+			}
+			if(typeof totalDisplay !== 'undefined'){
+				totalDisplay.innerText = totalDate.toISOString().substr(11, 8);
+			}
 		},
 		updateCumulative = function(){
 			cumulativeDate.setTime(totalDate.getTime());
@@ -425,6 +456,18 @@ function counterClass(timerDisplayDiv) {
 			},
 			'getRunning': function(){
 				return running;
+			},
+			'setSecondsDisplay': function(element){
+				secondsDisplay = element;
+			},
+			'setMinutesDisplay': function(element){
+				minutesDisplay = element;
+			},
+			'setHoursDisplay': function(element){
+				hoursDisplay = element;
+			},
+			'setTotalDisplay': function(element){
+				totalDisplay = element;
 			},
 			'incrementHours': function(){
 				cumulativeDate.setHours(cumulativeDate.getHours() + 1);

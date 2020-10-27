@@ -272,32 +272,11 @@ Clearfix
     color: #956504;
     padding: .5rem 6rem;
     font-size: 4rem;
-    text-align: right;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.1);
     margin: 2.6rem 0;
-    border: 0.3rem solid #f7f2e8; }
+    border: 0.3rem solid #f7f2e8;
+    display: grid; }
   .playing .timer__display {
     border: 0.3rem solid #956504; }
-  .timer__icon {
-    position: absolute;
-    right: 2rem;
-    bottom: 4.4rem;
-    font-size: 4rem;
-    color: #f7f2e8;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1); }
-  .timer__set-time {
-    position: absolute;
-    padding: 0 .25rem;
-    min-width: 6rem; }
-  .timer__increment {
-    bottom: 8.75rem; }
-  .timer__decrement {
-    bottom: 0rem; }
-  .timer__hours {
-    right: 18.4rem; }
-  .timer__minutes {
-    right: 11.95rem; }
-  .timer__seconds {
-    right: 5.5rem; }

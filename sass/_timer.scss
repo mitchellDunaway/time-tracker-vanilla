@@ -77,51 +77,17 @@
 		color: $color-4;
 		padding: .5rem 6rem;
 		font-size: 4rem;
-		text-align: right;
 		text-shadow: $shadow-2;
 		border-radius: 10px;
 		box-shadow: inset $shadow-2;
 		margin: 2.6rem 0;
 		border: .3rem solid $color-1;
+		display: grid;
 	}
 	
 	.playing &__display {
 		border: .3rem solid $color-4;
 	}
-	
-	&__icon {
-		position: absolute;
-		right: 2rem;
-		bottom: 4.4rem;
-		font-size: 4rem;
-		color: $color-1;
-		text-shadow: $shadow-2;
-	}
-	
-	&__set-time {
-		position: absolute;
-		padding: 0 .25rem;
-		min-width: 6rem;
-	}
-	
-	&__increment {
-		bottom: 8.75rem;
-	}
-	
-	&__decrement {
-		bottom: 0rem;
-	}
-	
-	&__hours {
-		right: 18.4rem;    
-	}
-	
-	&__minutes {
-		right: 11.95rem;
-	}
-	
-	&__seconds {
-		right: 5.5rem;
-	}
+
 
 }
