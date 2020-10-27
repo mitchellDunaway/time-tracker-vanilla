@@ -1,17 +1,92 @@
 /* adder */
 
 .adder-wrapper {
-	margin: 1rem 0;
+	position: fixed;
+	z-index: 9;
+	top: 0;
+	left: 0;
+	width: 100%;
+	font-size: 1.6rem;
 }
 
 .adder {
+	padding: 1rem;
+	display: flex;
 
-	&::before {
-		content: url(../svg/times-circle.svg);
+	
+	> *:not(:last-child) {
+		margin-right: 1rem;
+	}
+	
+	@include respond(tab-port) {
+		background: $color-1;
+		box-shadow: $shadow-1;
+		border-bottom: $border-1;
+		
+	}
+	
+	&__button {
+		
+		cursor: pointer;
+		transition: all .1s;
+		display: none;
+		color: $color-4;
+		background: $color-3;
+		border: none;
+		
+		&--start {
+			box-shadow: $shadow-1;
+			border: $border-1;
+			border-radius: 50%;
+			display: block;
+			font-size: 0;
+		}
+
+		@include respond(tab-port) {
+
+			&--start {
+				box-shadow: none;
+				border: none
+			}
+
+		}
+
+		@include respond(tab-land) {
+			background-color: $color-3;
+			padding: 1rem 1.5rem;
+			border-radius: 5px;
+			display: block;
+
+			&--start {
+				font-size: inherit;
+			}
+
+		}
+
+		&:focus {
+			outline: none;
+		}
+
+		&:active {
+			transform: translateY(1px);
+			box-shadow: none;
+		}
+
+
+
+	}
+	
+	&__icon {
+        font-size: 6rem;
 		display: block;
-		width: 100px;
-		height: 100px;
-		color: inherit;
+
+        @include respond(tab-port) {
+			font-size: 4rem;
+		}
+
+		@include respond(tab-land) {
+			display: none;
+		}
 	}
 
 
@@ -19,11 +94,16 @@
 		padding: .5rem 1rem;
 		border: none;
 		border-radius: 5px;
-		display: block;
-		width: 100%;
-		
+		display: none;
+		flex-grow: 1;
+
 		&::placeholder {
 			color: #CCC;
+		}
+
+		@include respond(tab-port) {
+			display: block;
+
 		}
 	}
 	

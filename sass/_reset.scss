@@ -1,4 +1,8 @@
-/* Reset stuff */
+/* Reset */
+
+:root {
+	--example: #000;
+}
 
 *,
 *::after,
@@ -10,17 +14,24 @@
 	font-size: inherit;
 }
 
-*:focus{
-	outline: none;
+html,
+body {
+	height: 100% !important;
 }
 
 html {
-	font-family: 'Anonymous Pro', monospace;
 	font-size: 62.5%;
+	box-sizing: border-box;
 }
 
 body {
-	box-sizing: border-box;
+	font-family: 'Anonymous Pro', monospace;
+	font-weight: 400;
+	line-height: 1.6;
+	font-size: 1.6rem;
+	margin: 0;
+
+/*I'm not sure these should go in reset, but don't have a good place for them yet.*/
 	background: $color-3;
 	color: $color-4;
 }

@@ -1,39 +1,67 @@
 /* global actions */
 
 .global-actions {
-	// look
-	background: $color-1;
-	box-shadow: $shadow-1;
-	border-top: $border-1;
-	// layout
-	display: flex;
-	justify-content: space-between;
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	// dimensions
-	width: 100%;
-	padding: 1rem;
-	//layers
-	z-index: 9;
-	// typography
-	font-size: 1rem;
+    // look
+    background: $color-1;
+    box-shadow: $shadow-1;
+    border-top: $border-1;
+    // layout
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    // dimensions
+    width: 100%;
+    padding: 1rem;
+    //layers
+    z-index: 9;
+    // typography
+    font-size: 1rem;
 	color: $color-4;
 
-	&__button {
-		display: block;
-		background: none;
+	@include respond(tab-port) {
+		font-size: 1.6rem;
+		justify-content: space-evenly;
+	}
+
+	@include respond(tab-land) {
+		font-size: 2rem;
+		justify-content: center;
+	}
+	
+    &__button {
+        display: block;
+        background: none;
 		border: none;
-	}
-
-	&__icon {
-		font-size: 3rem;
-		display: block;
+		padding: 0;
 		color: $color-4;
-		border: 3px solid $color-4;
-		padding: 1rem;
-		border-radius: 1rem;
-		margin: 0 0 .5rem;
+		text-transform: uppercase;
+		
+		@include respond(tab-port) {
+			margin: 0 .5rem;
+			background-color: $color-3;
+			padding: 1rem 1.5rem;
+			border-radius: 5px;
+			flex-grow: 1;
+			font-size: 1.4rem;
+		}
 	}
-
+	
+    &__icon {
+        font-size: 3rem;
+        display: block;
+        
+        border: 3px solid $color-4;
+        padding: 1rem;
+        border-radius: 1rem;
+		margin: 0 1rem .5rem;
+		
+        @include respond(tab-port) {
+            font-size: inherit;
+			border: none;
+			display: inline;
+			margin: 0;
+		}
+	}
 }

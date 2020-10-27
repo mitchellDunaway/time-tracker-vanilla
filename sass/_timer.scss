@@ -1,6 +1,61 @@
-/* timer something */
+/* timer */
+
+.timer-wrapper {
+	font-size: 2rem;
+	display: flex;
+	flex-direction: row;
+	flex-grow: 1;
+	flex-wrap: wrap;
+	align-content: flex-start;
+	padding: 1rem;
+}
 
 .timer {
+	border: $border-1;
+	padding: 1rem;
+	border-radius: 2rem;
+	margin: 1rem;
+	background: $color-1;
+	box-shadow: $shadow-1;
+	position: relative;
+	backface-visibility: hidden;
+	transform-origin: top center;
+
+	&--appear {		
+		animation: appearUp .5s ease-out;
+	}
+	
+	&--disappear {
+		animation: disappearUp .5s ease-out;
+	}
+
+	&__button {
+		padding: .5rem 1rem;
+		margin: 1rem 1rem 1rem 0;
+		border: none;
+		border-radius: 5px;
+		min-width: 10rem;
+		background: $color-3;
+		color: $color-4;
+		text-transform: uppercase;
+		cursor: pointer;
+		transition: all .1s;
+
+		&:focus {
+			outline: none;
+		}
+		
+		&:hover {
+			transform: translateY(-3px);
+			box-shadow: $shadow-1;
+		}
+
+		&:active {
+			transform: translateY(1px);
+			box-shadow: none;
+		}
+
+	}	
 	
 
 	&__name {
@@ -8,6 +63,13 @@
 		font-weight: 600;
 		padding: 0 1rem;
 		margin: 0 0 1rem;
+		display: block;
+
+		&--show {
+			background: none;
+			border: none;
+			color: currentColor;
+		}
 	}
 	
 	&__display {
