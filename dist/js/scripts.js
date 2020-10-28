@@ -211,6 +211,8 @@ function timerClass() {
 		newObj = {
 			'createTimer': function(target, name){
 
+				name = name || `timer-${timerArray.length}`;
+
 				// timer container
 				timerContainer = document.createElement("div");
 				timerContainer.classList.add("timer", "timer--appear");
@@ -220,42 +222,26 @@ function timerClass() {
 				nameTitle = document.createElement("input");
 				nameTitle.type = "textfield";
 				nameTitle.name = "timer__textfield";
-				nameTitle.classList.add("timer__name", "timer__name--show");
-				if(name){
-					nameTitle.value = name;
-				} else {
-					nameTitle.value = `timer ${timerArray.length}`;
-				}
-
-				nameTitle.addEventListener("click", e => {
-					e.target.classList.remove("timer__name--show");
-				});
-
-				nameTitle.addEventListener("keydown", e => {
-					if(e.code === "Enter" || e.code === "NumpadEnter"){
-						e.target.classList.add("timer__name--show");
-					}
-				});
-
-				nameTitle.addEventListener("blur", e => {
-					e.target.classList.add("timer__name--show");
-				});
-
-
+				nameTitle.classList.add("timer__name");
+				nameTitle.value = name;
 				timerContainer.append(nameTitle);
 
+				// button container
+				buttonContainer = document.createElement("div");
+				buttonContainer.classList.add("timer__button-container");
+				timerContainer.append(buttonContainer);
 
 				// start/pause button
 				startPauseButton = document.createElement("button");
 				startPauseButton.innerText = "start";
 				startPauseButton.classList.add("timer__button");
-				timerContainer.append(startPauseButton);
+				buttonContainer.append(startPauseButton);
 
 				// reset button				
 				resetButton = document.createElement("button");
 				resetButton.innerText = "reset";
 				resetButton.classList.add("timer__button");
-				timerContainer.append(resetButton);
+				buttonContainer.append(resetButton);
 
 				// remove button
 				removeButton = document.createElement("button");
@@ -274,27 +260,12 @@ function timerClass() {
 						}
 					}, 450);
 				});
-				timerContainer.append(removeButton);
+				buttonContainer.append(removeButton);
 
 				// display
 				displayDiv = document.createElement("div");
 				displayDiv.classList.add("timer__display");
 				timerContainer.append(displayDiv);
-
-				// secondsDisplay
-				secondsDisplayDiv = document.createElement("div");
-				secondsDisplayDiv.classList.add("timer__secondsDisplay");
-				displayDiv.append(secondsDisplayDiv);
-
-				// minutesDisplay
-				minutesDisplayDiv = document.createElement("div");
-				minutesDisplayDiv.classList.add("timer__minutesDisplay");
-				displayDiv.append(minutesDisplayDiv);
-
-				// hoursDisplay
-				hoursDisplayDiv = document.createElement("div");
-				hoursDisplayDiv.classList.add("timer__hoursDisplay");
-				displayDiv.append(hoursDisplayDiv);
 
 				// increment Hours
 				incrementHoursButton = document.createElement("button");
@@ -302,29 +273,44 @@ function timerClass() {
 				incrementHoursButton.classList.add("timer__set-time");
 				displayDiv.append(incrementHoursButton);
 
+				// increment Minutes
+				incrementMinutesButton = document.createElement("button");
+				incrementMinutesButton.innerHTML = "<i class=\"fas fa-caret-up\"></i>";
+				incrementMinutesButton.classList.add("timer__set-time");
+				displayDiv.append(incrementMinutesButton);
+				
+				// increment Seconds
+				incrementSecondsButton = document.createElement("button");
+				incrementSecondsButton.innerHTML = "<i class=\"fas fa-caret-up\"></i>";
+				incrementSecondsButton.classList.add("timer__set-time");
+				displayDiv.append(incrementSecondsButton);
+				
+				// hoursDisplay
+				hoursDisplayDiv = document.createElement("div");
+				hoursDisplayDiv.classList.add("timer__display-time", "timer__hoursDisplay");
+				displayDiv.append(hoursDisplayDiv);
+				
+				// minutesDisplay
+				minutesDisplayDiv = document.createElement("div");
+				minutesDisplayDiv.classList.add("timer__display-time", "timer__minutesDisplay");
+				displayDiv.append(minutesDisplayDiv);
+				
+				// secondsDisplay
+				secondsDisplayDiv = document.createElement("div");
+				secondsDisplayDiv.classList.add("timer__display-time", "timer__secondsDisplay");
+				displayDiv.append(secondsDisplayDiv);
+
 				// decrement Hours
 				decrementHoursButton = document.createElement("button");
 				decrementHoursButton.innerHTML = "<i class=\"fas fa-caret-down\"></i>";
 				decrementHoursButton.classList.add("timer__set-time");
 				displayDiv.append(decrementHoursButton);
 
-				// increment minutes
-				incrementMinutesButton = document.createElement("button");
-				incrementMinutesButton.innerHTML = "<i class=\"fas fa-caret-up\"></i>";
-				incrementMinutesButton.classList.add("timer__set-time");
-				displayDiv.append(incrementMinutesButton);
-
 				// decrement minutes
 				decrementMinutesButton = document.createElement("button");
 				decrementMinutesButton.innerHTML = "<i class=\"fas fa-caret-down\"></i>";
 				decrementMinutesButton.classList.add("timer__set-time");
 				displayDiv.append(decrementMinutesButton);
-
-				// increment Seconds
-				incrementSecondsButton = document.createElement("button");
-				incrementSecondsButton.innerHTML = "<i class=\"fas fa-caret-up\"></i>";
-				incrementSecondsButton.classList.add("timer__set-time");
-				displayDiv.append(incrementSecondsButton);
 
 				// decrement Seconds
 				decrementSecondsButton = document.createElement("button");

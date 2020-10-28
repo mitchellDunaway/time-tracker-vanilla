@@ -218,9 +218,10 @@ Clearfix
 .timer-wrapper {
   font-size: 2rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   flex-grow: 1;
   flex-wrap: wrap;
+  align-items: flex-start;
   align-content: flex-start;
   padding: 1rem; }
 
@@ -233,14 +234,14 @@ Clearfix
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
   position: relative;
   backface-visibility: hidden;
-  transform-origin: top center; }
-  .timer--appear {
-    animation: appearUp .5s ease-out; }
-  .timer--disappear {
-    animation: disappearUp .5s ease-out; }
+  transform-origin: top center;
+  flex: 1 0 0; }
+  .timer__button-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 1rem; }
   .timer__button {
     padding: .5rem 1rem;
-    margin: 1rem 1rem 1rem 0;
     border: none;
     border-radius: 5px;
     min-width: 10rem;
@@ -248,35 +249,64 @@ Clearfix
     color: #956504;
     text-transform: uppercase;
     cursor: pointer;
-    transition: all .1s; }
+    transition: all .1s;
+    flex: 1 0 auto;
+    flex-wrap: wrap; }
+    .timer__button:not(:last-child) {
+      margin: 0 1rem 0 0; }
     .timer__button:focus {
-      outline: none; }
+      outline: none;
+      color: black; }
     .timer__button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5); }
-    .timer__button:active {
-      transform: translateY(1px);
-      box-shadow: none; }
+      background: #f5e7cc; }
   .timer__name {
-    font-size: 3rem;
     font-weight: 600;
-    padding: 0 1rem;
+    padding: .5rem 1rem;
     margin: 0 0 1rem;
-    display: block; }
-    .timer__name--show {
-      background: none;
-      border: none;
-      color: currentColor; }
+    display: block;
+    border: none;
+    border-radius: .5rem;
+    background: none;
+    color: currentColor;
+    width: 100%; }
+    .timer__name:focus {
+      outline: none;
+      background: white;
+      color: black; }
   .timer__display {
     background: #f5e7cc;
     color: #956504;
-    padding: .5rem 6rem;
+    padding: 1rem 3rem;
     font-size: 4rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.1);
-    margin: 2.6rem 0;
     border: 0.3rem solid #f7f2e8;
-    display: grid; }
+    display: grid;
+    grid-template-rows: repeat(3, min-content);
+    grid-template-columns: repeat(3, min-content);
+    grid-gap: 1rem;
+    justify-items: center;
+    align-items: center;
+    justify-content: start;
+    align-content: center; }
   .playing .timer__display {
     border: 0.3rem solid #956504; }
+  .timer__set-time {
+    background: none;
+    border: none;
+    color: inherit;
+    line-height: .3em; }
+    .timer__set-time i {
+      line-height: 0; }
+    .timer__set-time:focus {
+      outline: none;
+      color: #000; }
+  .timer__display-time {
+    line-height: .7em; }
+  .timer__hoursDisplay::after {
+    content: 'h'; }
+  .timer__minutesDisplay::after {
+    content: 'm'; }
+  .timer__secondsDisplay::after {
+    content: 's'; }
