@@ -19,22 +19,12 @@
 		flex-shrink: 0;
 
 	}
-	
+
 	&::before {
-		flex-basis: 7.5rem;
+		flex-basis: 7.8rem;
 	}
 
 	&::after {
-		flex-basis: 9.5rem;
-	}
-
-	@include respond(tab-port) {
-		&::before {
-			flex-basis: 6.5rem;
-		}
-	
-		&::after {
-			flex-basis: 6rem;
-		}
+		flex-basis: 9.8rem;
 	}
 }

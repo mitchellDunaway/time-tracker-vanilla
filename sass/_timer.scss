@@ -2,13 +2,14 @@
 
 .timer-wrapper {
 	font-size: 2rem;
-	display: flex;
-	flex-direction: row-reverse;
-	flex-grow: 1;
-	flex-wrap: wrap;
-	align-items: flex-start;
-	align-content: flex-start;
 	padding: 1rem;
+
+	// grid stuff
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+	grid-gap: 1rem;
+	grid-auto-flow: row dense;
+
 }
 
 .timer {
@@ -21,7 +22,6 @@
 	position: relative;
 	backface-visibility: hidden;
 	transform-origin: top center;
-	flex: 1 0 0;
 
 
 	&__button-container {
@@ -34,7 +34,6 @@
 		padding: .5rem 1rem;		
 		border: none;
 		border-radius: 5px;
-		min-width: 10rem;
 		background: $color-3;
 		color: $color-4;
 		text-transform: uppercase;
