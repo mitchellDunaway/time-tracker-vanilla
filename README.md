@@ -19,14 +19,7 @@ A tool for tracking how long multiple simultaneous things take.
 * [x] timers should animate disappearance when removed
 * [x] npm init
 * [x] install Sass
-* [ ] refactor CSS with Sass
-	* [x] components
-	* [x] nesting
-	* [x] variables
-	* [ ] responsive
-		* [ ] 
-	* [ ] flex-box
-* [ ] determine compatibility requirements (targeted browsers and ES6 features)
+* [x] refactor CSS with Sass
 * [ ] refactor using ES6
 * [ ] refactor animation to use [layout-tween](https://www.npmjs.com/package/layout-tween)
 * [ ] allow one counter to be put in document title

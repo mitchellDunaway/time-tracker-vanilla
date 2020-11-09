@@ -72,8 +72,7 @@ Clearfix
 .main {
   height: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between; }
+  flex-direction: column; }
   .main::before, .main::after {
     content: '';
     display: block;
@@ -213,10 +212,12 @@ Clearfix
 .timer-wrapper {
   font-size: 2rem;
   padding: 1rem;
+  flex: 1 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(32rem, 1fr));
   grid-gap: 1rem;
-  grid-auto-flow: row dense; }
+  grid-auto-flow: row dense;
+  grid-auto-rows: 25rem; }
 
 .timer {
   border: 3px solid #f5e7cc;
@@ -277,17 +278,14 @@ Clearfix
     grid-template-rows: repeat(3, min-content);
     grid-template-columns: repeat(3, min-content);
     grid-gap: 1rem;
-    justify-items: center;
-    align-items: center;
-    justify-content: start;
-    align-content: center; }
+    justify-content: center; }
   .playing .timer__display {
     border: 0.3rem solid #956504; }
   .timer__set-time {
     background: none;
     border: none;
     color: inherit;
-    line-height: .3em; }
+    line-height: .6em; }
     .timer__set-time i {
       line-height: 0; }
     .timer__set-time:focus {

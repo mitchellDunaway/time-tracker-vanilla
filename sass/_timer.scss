@@ -3,12 +3,14 @@
 .timer-wrapper {
 	font-size: 2rem;
 	padding: 1rem;
+	flex: 1 0 auto;
 
 	// grid stuff
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(32rem, 1fr));
 	grid-gap: 1rem;
 	grid-auto-flow: row dense;
+	grid-auto-rows: 25rem;
 
 }
 
@@ -90,10 +92,7 @@
 		grid-template-rows: repeat(3, min-content);
 		grid-template-columns: repeat(3, min-content);
 		grid-gap: 1rem;
-		justify-items: center;
-		align-items: center; // STRETCH / center / end / start
-		justify-content: start; // center / start / end / space-between / space-around / space-evenly
-		align-content: center;
+		justify-content: center; 
 
 	}
 	
@@ -105,7 +104,7 @@
 		background: none;
 		border: none;
 		color: inherit;
-		line-height: .3em;
+		line-height: .6em;
 
 		i {
 			line-height: 0;
